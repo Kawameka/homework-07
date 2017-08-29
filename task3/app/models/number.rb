@@ -1,9 +1,7 @@
 class Number < ApplicationRecord
-  validates :to_factorial, presence: true, uniqueness: true, length: { maximum: 3 }, numericality: { only_integer: true }
+  validates :to_factorial, presence: true, uniqueness: true, length: { maximum: 2 }, numericality: { only_integer: true }
   
-  before_create do
-    factorialed = _factorial(to_factorial, 1)
-  end
+  before_save { |number| number.factorialed = _factorial(number.to_factorial, 1) }
 
   private
 

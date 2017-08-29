@@ -3,7 +3,7 @@
 <h2><%= link_to "New Number", new_number_path %></h2>
 <br />
 
-<%= @numbers.each do |number| %>
+<% @numbers.each do |number| %>
   <div>
     <h3><%= "#{number.to_factorial} - #{number.factorialed}" %></h3>
 <% end %>
